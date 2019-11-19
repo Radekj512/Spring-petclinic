@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PetController {
     @RequestMapping("/pet")
-    public String getPetPage(){
-        return "pet";
+    public String getPets(){
+        return "pets/index";
     }
 }
