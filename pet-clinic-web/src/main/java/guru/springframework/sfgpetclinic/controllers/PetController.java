@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PetController {
-    @RequestMapping("/pet")
+    @RequestMapping("/pets")
     public String getPets(){
         return "pets/index";
     }
