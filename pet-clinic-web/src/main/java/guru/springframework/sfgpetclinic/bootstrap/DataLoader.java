@@ -1,6 +1,7 @@
 package guru.springframework.sfgpetclinic.bootstrap;
 
 import guru.springframework.sfgpetclinic.model.Owner;
+import guru.springframework.sfgpetclinic.model.Pet;
 import guru.springframework.sfgpetclinic.model.PetType;
 import guru.springframework.sfgpetclinic.model.Vet;
 import guru.springframework.sfgpetclinic.services.OwnerService;
@@ -9,6 +10,9 @@ import guru.springframework.sfgpetclinic.services.VetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
+import java.time.Month;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -39,10 +43,25 @@ public class DataLoader implements CommandLineRunner {
         Owner o1 = new Owner();
         o1.setFirstName("Antoni");
         o1.setLastName("Macierewicz");
+        o1.setAddress("Nowa 15");
+        o1.setCity("Lodz");
+        o1.setTelephone("534711332");
+
+        Pet p1 = new Pet();
+        p1.setPetType(savedCatPetType);
+        p1.setOwner(o1);
+        p1.setName("rex");
+        p1.setBirthDate(LocalDate.of(2017, Month.DECEMBER,25));
+
+        o1.getPets().add(p1);
 
         Owner o2 = new Owner();
         o2.setFirstName("Jan");
         o2.setLastName("Kowalski");
+        o2.setAddress("Nowa 15");
+        o2.setCity("Lodz");
+        o2.setTelephone("534711332");
+
 
         ownerService.save(o1);
         ownerService.save(o2);
